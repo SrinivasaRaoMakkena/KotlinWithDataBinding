@@ -23,4 +23,33 @@
         <item name="android:windowActionBar">false</item>
     </style>
 
+    <style name="button_white_blue">
+        <item name="android:gravity">center_vertical|center_horizontal</item>
+        <item name="android:textColor">@drawable/button_white_blue_text</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:background">@drawable/button_white_blue_border</item>
+        <item name="android:focusable">true</item>
+        <item name="android:clickable">true</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:lineSpacingExtra">5dp</item>
+        <item name="android:foreground">?attr/selectableItemBackground</item>
+    </style>
+
+    <style name="button_blue">
+        <item name="android:gravity">center_vertical|center_horizontal</item>
+        <item name="android:textColor">@drawable/button_blue_white_text</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:background">@drawable/button_blue_blue_border</item>
+        <item name="android:focusable">true</item>
+        <item name="android:clickable">true</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:lineSpacingExtra">5dp</item>
+        <item name="android:foreground">?attr/selectableItemBackground</item>
+    </style>
+
+
 </resources>

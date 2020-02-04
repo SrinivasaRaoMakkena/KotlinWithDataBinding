@@ -1,5 +1,6 @@
 package com.example.databindingwithkotlin
 
+import android.content.Context
 import android.content.Intent
 import android.support.v7.widget.RecyclerView
 import android.util.Log
@@ -59,12 +60,12 @@ class CountriesAdapter():RecyclerView.Adapter<RecyclerView.ViewHolder>(){
             val context = itemView.context
 
             context.toast(country1!!.countryName)
+            itemView.getActivity()?.showConfirmDialog("Do you want to select this country - ${country1!!.countryName}?","")
             /**
              * Intent to other intents  when clicked on item
              */
 
             //val intent = Intent(context, SecondActivity::class.java)
-            //intent.putExtra(PHOTO_KEY, photo)
             //context.startActivity(intent)
 
         }

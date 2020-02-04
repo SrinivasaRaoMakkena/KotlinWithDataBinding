@@ -7,5 +7,10 @@
 
     <color name="white">#fff</color>
     <color name="greyish_brown">#424242</color>
+    <color name="popup_header_2">#8a000000</color>
+
+    <color name="button_selected">#0071e9</color>
+    <color name="bs_water_blue">#1977d3</color>
+    <color name="water_blue">#0071e9</color>
 
 </resources>
