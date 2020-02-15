@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/curve_border"
+    android:padding="16dp"
+    android:layout_marginLeft="0dp"
+    android:layout_marginRight="0dp"
+    android:layout_gravity="center"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/loader_image"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        app:srcCompat="@drawable/bird_animation"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:scaleType="fitStart"
+        android:layout_marginTop="0dp"
+        android:layout_marginLeft="0dp"
+        android:visibility="visible"
+        android:layout_marginRight="0dp"
+        android:foregroundGravity="left"
+
+        />
+    <TextView
+        android:id="@+id/loading_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/loader_image"
+        tools:text="... loading  ..."
+        android:gravity="center"
+        android:visibility="visible"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/blue_text_color"
+
+        />
+
+    <ProgressBar
+        android:id="@+id/progressBarLoader"
+        android:layout_width="60dp"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        app:layout_constraintHorizontal_weight=".4"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+    <TextView
+        android:id="@+id/progressBarNote"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        tools:text="Please wait..."
+        android:text="Please wait ...."
+        android:gravity="center"
+        android:textSize="16sp"
+        android:visibility="gone"
+        android:layout_marginLeft="32dp"
+        app:layout_constraintLeft_toRightOf="@+id/progressBarLoader"
+
+        />
+
+
+</android.support.constraint.ConstraintLayout>

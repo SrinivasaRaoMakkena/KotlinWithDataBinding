@@ -12,5 +12,6 @@
     <color name="button_selected">#0071e9</color>
     <color name="bs_water_blue">#1977d3</color>
     <color name="water_blue">#0071e9</color>
+    <color name="blue_text_color">#0C5AF7</color>
 
 </resources>

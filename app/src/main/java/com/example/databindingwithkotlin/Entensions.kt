@@ -16,6 +16,10 @@ import android.view.ViewGroup
 import android.widget.Toast
 import kotlinx.android.synthetic.main.content_confirm_dialog.view.*
 import android.content.ContextWrapper
+import android.view.animation.AlphaAnimation
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
+import kotlinx.android.synthetic.main.item_claims_loader_dialog.view.*
 
 
 /**
@@ -67,6 +71,7 @@ fun Activity.showConfirmDialog(str_msg: String, str_action: String) {
 
     btn_yes.setOnClickListener {
         this.toast("Clicked on Yes")
+        this.showLoadingDialog()//show loading dialog when clicked on Yes
         alertDialog.dismiss()
     }
 
@@ -95,4 +100,59 @@ fun View.getActivity(): Activity? {
         context = (context as ContextWrapper).baseContext
     }
     return null
+}
+
+/**
+ * Custom Progress Dialog
+ */
+
+fun Activity.showLoadingDialog(): AlertDialog {
+
+    val dialogBuilder = AlertDialog.Builder(this)
+    val inflater = this.getLayoutInflater()
+    @SuppressLint("InflateParams")
+    val dialogView = inflater.inflate(R.layout.item_claims_loader_dialog, null)
+    dialogBuilder.setView(dialogView)
+
+    val imageView = dialogView.loader_image
+    val loading_text = dialogView.loading_text
+
+    val alertDialog = dialogBuilder.create()
+
+    val animSlide = AnimationUtils.loadAnimation(this, R.anim.slide_left_to_right);
+    imageView.startAnimation(animSlide)//from anim folder
+    blinkingView(loading_text, tracking = true)
+    //imageView.animate(this)//from extesnion fn
+    //In Android, AlertDialog insert into another container, to avoid that , we need to make back ground transparent
+    loading_text.text = "... Please wait ..."
+    alertDialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+    alertDialog.setCanceledOnTouchOutside(false)
+    if (!alertDialog.isShowing) {
+        alertDialog.show()
+        //alertDialog.window!!.setLayout(900, 600);
+    } else {
+        alertDialog.dismiss()
+    }
+
+
+    return alertDialog
+
+
+}
+
+/**
+ * On and Off Animation
+ */
+
+fun blinkingView(view: View, tracking: Boolean) {
+    val anim = AlphaAnimation(0.0f, 1.0f)
+    anim.duration = 300 //You can manage the blinking time with this
+    anim.startOffset = 20
+    anim.repeatMode = Animation.REVERSE
+    anim.repeatCount = Animation.INFINITE
+    if (tracking) {
+        view.startAnimation(anim)
+    } else {
+        view.clearAnimation()
+    }
 }
